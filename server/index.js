@@ -28,5 +28,8 @@ massive({
 })
 
 app.post('/auth/register', auth.register)
+app.post('/auth/login', auth.login)
+app.post('/auth/logout', auth.logout)
+app.get('/auth/user', auth.getUserSession)
 
 app.listen(SERVER_PORT, () => console.log(`Connected on Port ${SERVER_PORT}`))
