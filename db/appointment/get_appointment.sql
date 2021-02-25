@@ -1,2 +1,2 @@
 SELECT * FROM appointment
-WHERE date = $1;
+WHERE user_id = $1;

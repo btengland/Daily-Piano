@@ -4,13 +4,13 @@ module.exports = {
     register: async (req, res) => {
         const db = req.app.get('db')
         const { email, first_name, last_name, password, is_admin } = req.body
-        const [foundUser] = await db.check_user(email)
+        const [foundUser] = await db.users.check_user(email)
         if (foundUser) {
             return res.status(400).send("Email already exists")
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        const [newUser] = await db.add_user([email, first_name, last_name, hash, is_admin])
+        const [newUser] = await db.users.add_user([email, first_name, last_name, hash, is_admin])
         req.session.user = {
             userId: newUser.user_id,
             email: newUser.email,
@@ -23,7 +23,7 @@ module.exports = {
     login: async (req, res) => {
         const db = req.app.get('db')
         const { email, password } = req.body
-        const [foundUser] = await db.check_user(email)
+        const [foundUser] = await db.users.check_user(email)
         if (!foundUser) {
             return res.status(401).send("Incorrect login information")
         }
