@@ -1,3 +1,4 @@
+import '../../../reset.css'
 import React, {useState} from 'react'
 
 const Appointment = () => {

@@ -1,9 +1,10 @@
+import '../../reset.css'
 import './Header.css'
 import React, {useState} from 'react'
 
 const Header = () => {
     return (
-        <div></div>
+        <div>Header</div>
     )
 }
 

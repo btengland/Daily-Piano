@@ -1,9 +1,10 @@
+import '../../reset.css'
 import './Main.css'
 import React, {useState} from 'react'
 
 const Main = () => {
     return (
-        <div></div>
+        <div>Main</div>
     )
 }
 

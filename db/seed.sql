@@ -13,8 +13,14 @@ CREATE TABLE users (
 
 CREATE TABLE practice (
     practice_id SERIAL PRIMARY KEY,
-    day VARCHAR(30),
-    time_practiced INT DEFAULT 0,
+    monday INT DEFAULT 0,
+    tuesday INT DEFAULT 0,
+    wednesday INT DEFAULT 0,
+    thursday INT DEFAULT 0,
+    friday INT DEFAULT 0,
+    saturday INT DEFAULT 0,
+    sunday INT DEFAULT 0,
+    goal INT DEFAULT 0,
     user_id INT REFERENCES users(user_id)
 );
 
