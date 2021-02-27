@@ -30,7 +30,7 @@ module.exports = {
         const authenticated = bcrypt.compareSync(password, foundUser.password)
         if (authenticated) {
             req.session.user = {
-                userId: foundUser.user_id,
+                user_id: foundUser.user_id,
                 email: foundUser.email,
                 first_name: foundUser.first_name,
                 last_name: foundUser.last_name,

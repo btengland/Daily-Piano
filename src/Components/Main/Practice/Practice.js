@@ -1,5 +1,5 @@
 import '../../../reset.css'
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { PracticeContext } from '../../../context/PracticeContext'
 
 const Practice = () => {
@@ -13,13 +13,17 @@ const Practice = () => {
     const [goal, setGoal] = useState("")
     const [reset, setReset] = useState("")
 
+    useEffect(() => {
+        practiceContext.getPractice()
+    }, [])
+
     return (
         <div>
             <div>
                 <h2>Monday</h2>
                 <input value={monday} onChange={(e) => { setMonday(e.target.value) }} />
                 <button>Edit</button>
-                <button onClick={() => practiceContext.addPractice(monday)}>Done</button>
+                <button onClick={() => practiceContext.addPractice()}>Done</button>
             </div>
             <div>
                 <h2>Tuesday</h2>

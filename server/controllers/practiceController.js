@@ -1,7 +1,7 @@
 module.exports = {
     addPractice: async (req, res) => {
         const { monday, tuesday, wednesday, thursday, friday, saturday, sunday, goal } = req.body
-        const { user_id } = req.session.user
+        const { user_id } = req.session.user.user_id
         const db = req.app.get('db')
         const add = await db.practice.add_practice([monday, tuesday, wednesday, thursday, friday, saturday, sunday, goal, user_id])
         return res.status(201).send(add)
