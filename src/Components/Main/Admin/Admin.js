@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 
 const Admin = () => {
     return (
-        <div></div>
+        <div>Admin</div>
     )
 }
 

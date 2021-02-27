@@ -11,15 +11,15 @@ import { HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
-      <PracticeProvider>
-        <AppointmentProvider>
-          <HashRouter>
+    <HashRouter>
+      <UserProvider>
+        <PracticeProvider>
+          <AppointmentProvider>
             <App />
-          </HashRouter>
-        </AppointmentProvider>
-      </PracticeProvider>
-    </UserProvider>
+          </AppointmentProvider>
+        </PracticeProvider>
+      </UserProvider>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
