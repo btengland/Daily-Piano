@@ -34,10 +34,9 @@ app.post('/auth/login', auth.login)
 app.post('/auth/logout', auth.logout)
 app.get('/auth/user', auth.getUserSession)
 
-app.post('/api/practice', prac.addPractice)
-app.put('/api/practice/:practice_id', prac.updatePractice)
-app.delete('/api/practice/:practice_id', prac.deletePractice)
-app.get('/api/practice', prac.getPractice)
+app.put('/api/practice/', prac.updatePractice)
+app.delete('/api/practice/', prac.deletePractice)
+app.get('/api/practice/', prac.getPractice)
 
 app.post('/api/appointment', apt.addAppointment)
 app.put('/api/appointment/:appointment_id', apt.updateAppointment)

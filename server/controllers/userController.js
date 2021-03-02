@@ -10,15 +10,18 @@ module.exports = {
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        const [newUser] = await db.users.add_user([email, first_name, last_name, hash, is_admin])
+        const [newUser] = await db.users.add_user(email, first_name, last_name, hash, is_admin)
         req.session.user = {
-            userId: newUser.user_id,
+            user_id: newUser.user_id,
             email: newUser.email,
             first_name: newUser.first_name,
             last_name: newUser.last_name,
             is_admin: newUser.is_admin
         }
+        const [add] = await db.practice.add_practice(0, 0, 0, 0, 0, 0, 0, 0, newUser.user_id)
+        if(add)
         res.status(200).send(req.session.user)
+        else{res.sendStatus(500)}
     },
     login: async (req, res) => {
         const db = req.app.get('db')
@@ -46,14 +49,14 @@ module.exports = {
         res.sendStatus(200)
     },
     getUserSession: (req, res) => {
-        if (req.session.user){
+        if (req.session.user) {
             res.status(200).send(req.session.user)
         } else {
             res.status(404).send('Please Log In')
         }
     },
     emailMiddleware: (req, res, next) => {
-        if(req.body.email.includes("@")){
+        if (req.body.email.includes("@")) {
             return next()
         } else {
             res.status(500).send("Invalid email")

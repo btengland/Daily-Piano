@@ -8,12 +8,12 @@ export const UserProvider = (props) => {
     const history = useHistory()
     const register = async (first_name, last_name, email, password) => {
         try {
-            const response = await axios.post('/auth/register', {first_name, last_name, email, password})
+            const response = await axios.post('/auth/register', { first_name, last_name, email, password })
             setUser(response.data)
             history.push('/home')
         }
-        catch(err) {
-            if(err.response.status === 500){
+        catch (err) {
+            if (err.response.status === 500) {
                 alert('Invalid email')
             } else {
                 alert('Email already in use')
@@ -22,7 +22,7 @@ export const UserProvider = (props) => {
     }
     const login = async (email, password) => {
         try {
-            const response = await axios.post('/auth/login', {email, password})
+            const response = await axios.post('/auth/login', { email, password })
             setUser(response.data)
             history.push('/home')
         }

@@ -1,6 +1,6 @@
 import '../../reset.css'
 import './Header.css'
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../../context/UserContext'
 
