@@ -1,5 +1,5 @@
 import '../../../reset.css'
-import React, {useState} from 'react'
+import React from 'react'
 
 const Appointment = () => {
     return (

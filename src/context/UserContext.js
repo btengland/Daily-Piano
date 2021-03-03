@@ -11,6 +11,7 @@ export const UserProvider = (props) => {
             const response = await axios.post('/auth/register', { first_name, last_name, email, password })
             setUser(response.data)
             history.push('/home')
+            alert('Successfully created account')
         }
         catch (err) {
             if (err.response.status === 500) {
