@@ -8,12 +8,8 @@ export const AppointmentProvider = (props) => {
         const response = await axios.post('/api/appointment', { date })
         setAppointment(response.data)
     }
-    const updateAppointment = async (date) => {
-        const response = await axios.put('/api/appointment/:appointment_id', { date })
-        setAppointment(response.data)
-    }
     const deleteAppointment = async () => {
-        const response = await axios.delete('/api/appointment/:appointment_id')
+        const response = await axios.delete('/api/appointment/')
         setAppointment(response.data)
     }
     const getAppointment = async () => {
@@ -21,7 +17,7 @@ export const AppointmentProvider = (props) => {
         setAppointment(response.data)
     }
     return (
-        <AppointmentContext.Provider value={{ appointment, addApointment, updateAppointment, deleteAppointment, getAppointment }}>
+        <AppointmentContext.Provider value={{ appointment, addApointment, deleteAppointment, getAppointment }}>
             {props.children}
         </AppointmentContext.Provider>
     )

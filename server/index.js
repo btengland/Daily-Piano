@@ -2,12 +2,16 @@ require('dotenv').config()
 const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
+const twilio = require('twilio')
 
 const app = express()
-const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env
+const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING, authToken } = process.env
 const auth = require('./controllers/userController')
 const prac = require('./controllers/practiceController')
 const apt = require('./controllers/appointmentController')
+
+const accountSid = 'ACdda3433573b6d1e51f480fb16d25ef03'
+const client = new twilio(accountSid, authToken)
 
 app.use(express.json())
 app.use(session({
@@ -38,9 +42,17 @@ app.put('/api/practice/', prac.updatePractice)
 app.put('/api/practice/', prac.resetPractice)
 app.get('/api/practice/', prac.getPractice)
 
-app.post('/api/appointment', apt.addAppointment)
-app.put('/api/appointment/:appointment_id', apt.updateAppointment)
-app.delete('/api/appointment/:appointment_id', apt.deleteAppointment)
-app.get('/api/appointment', apt.getAppointment)
+app.post('/api/appointment/', apt.addAppointment)
+app.delete('/api/appointment/', apt.deleteAppointment)
+app.get('/api/appointment/', apt.getAppointment)
+
+app.get('/send-text', (req, res) => {
+    const { recipient, textmessage } = req.query
+    client.messages.create({
+        body: textmessage,
+        to: '+'+recipient,
+        from: '+12623933161'
+    }).then((message) => console.log(message.body))
+})
 
 app.listen(SERVER_PORT, () => console.log(`Connected on Port ${SERVER_PORT}`))

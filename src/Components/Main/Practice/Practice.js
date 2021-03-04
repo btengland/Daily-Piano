@@ -80,7 +80,7 @@ const Practice = () => {
                 <button onClick={() => {
                     practiceContext.updatePractice(practiceTime);
                     toggleEdit(false)
-                    }}>Done</button>
+                }}>Done</button>
             </div>
             <div className='chart'>
                 <Bar
