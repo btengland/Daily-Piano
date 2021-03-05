@@ -1,5 +1,5 @@
 import '../../../reset.css'
-import React, { useState, useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { UserContext } from '../../../context/UserContext'
 import { AppointmentContext } from '../../../context/AppointmentContext'
 

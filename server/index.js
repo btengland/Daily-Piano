@@ -5,13 +5,14 @@ const session = require('express-session')
 const twilio = require('twilio')
 
 const app = express()
-const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING, authToken } = process.env
+const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING, AUTH_TOKEN } = process.env
 const auth = require('./controllers/userController')
 const prac = require('./controllers/practiceController')
 const apt = require('./controllers/appointmentController')
 
+const phoneNumber = '+12623933161'
 const accountSid = 'ACdda3433573b6d1e51f480fb16d25ef03'
-const client = new twilio(accountSid, authToken)
+const client = new twilio(accountSid, AUTH_TOKEN)
 
 app.use(express.json())
 app.use(session({
@@ -28,7 +29,7 @@ massive({
     ssl: {
         rejectUnauthorized: false
     }
-}).then( db => {
+}).then(db => {
     app.set('db', db)
     console.log('Connected to db')
 })
@@ -46,13 +47,14 @@ app.post('/api/appointment/', apt.addAppointment)
 app.delete('/api/appointment/', apt.deleteAppointment)
 app.get('/api/appointment/', apt.getAppointment)
 
-app.get('/send-text', (req, res) => {
-    const { recipient, textmessage } = req.query
+app.post(`/Accounts/${accountSid}/Messages`, (req, res) => {
+    const { recipient } = req.params
     client.messages.create({
-        body: textmessage,
-        to: '+'+recipient,
-        from: '+12623933161'
+        body: `Your next piano lesson is tomorrow at `,
+        to: '+' + recipient,
+        from: +phoneNumber
     }).then((message) => console.log(message.body))
+        .catch(err => console.log(err))
 })
 
 app.listen(SERVER_PORT, () => console.log(`Connected on Port ${SERVER_PORT}`))

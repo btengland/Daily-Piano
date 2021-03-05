@@ -4,8 +4,8 @@ import axios from 'axios'
 export const AppointmentContext = createContext()
 export const AppointmentProvider = (props) => {
     const [appointment, setAppointment] = useState(null)
-    const addApointment = async (date) => {
-        const response = await axios.post('/api/appointment', { date })
+    const addApointment = async (date, phone_number) => {
+        const response = await axios.post('/api/appointment/', { date, phone_number })
         setAppointment(response.data)
     }
     const deleteAppointment = async () => {
@@ -13,7 +13,7 @@ export const AppointmentProvider = (props) => {
         setAppointment(response.data)
     }
     const getAppointment = async () => {
-        const response = await axios.get('/api/appointment')
+        const response = await axios.get('/api/appointment/')
         setAppointment(response.data)
     }
     return (

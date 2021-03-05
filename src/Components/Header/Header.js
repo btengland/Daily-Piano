@@ -1,19 +1,15 @@
 import '../../reset.css'
 import './Header.css'
-import React, { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../../context/UserContext'
 
 const Header = () => {
     const userContext = useContext(UserContext)
 
-    useEffect(() => {
-        userContext.getUser()
-    }, [])
-
     return (
         <div className='header'>
-            {userContext.user && <><Link to='/home'>
+            <Link to='/home'>
                 <h3>Home</h3>
             </Link>
                 <Link to='/practice'>
@@ -25,7 +21,7 @@ const Header = () => {
                 <Link to='/admin'>
                     <h3>Admin</h3>
                 </Link>
-                <button onClick={() => userContext.logout()}>Logout</button></>}
+                <button onClick={() => userContext.logout()}>Logout</button>
         </div>
     )
 }

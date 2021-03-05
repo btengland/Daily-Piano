@@ -52,7 +52,7 @@ module.exports = {
         if (req.session.user) {
             res.status(200).send(req.session.user)
         } else {
-            res.status(404).send('Please Log In')
+            res.status(401).send('Please Log In')
         }
     },
     emailMiddleware: (req, res, next) => {

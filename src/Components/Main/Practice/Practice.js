@@ -13,7 +13,7 @@ const Practice = () => {
     useEffect(() => {
         if (userContext.user) practiceContext.getPractice()
     }, [userContext.user])
-
+    
     useEffect(() => {
         setPracticeTime(practiceContext.practice)
     }, [practiceContext.practice])
