@@ -3,12 +3,14 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const twilio = require('twilio')
+const {google} = require('googleapis')
 
 const app = express()
 const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING, AUTH_TOKEN } = process.env
 const auth = require('./controllers/userController')
 const prac = require('./controllers/practiceController')
 const apt = require('./controllers/appointmentController')
+const {oAuth2} = google.auth
 
 const phoneNumber = '+12623933161'
 const accountSid = 'ACdda3433573b6d1e51f480fb16d25ef03'
@@ -46,15 +48,5 @@ app.get('/api/practice/', prac.getPractice)
 app.post('/api/appointment/', apt.addAppointment)
 app.delete('/api/appointment/', apt.deleteAppointment)
 app.get('/api/appointment/', apt.getAppointment)
-
-app.post(`/Accounts/${accountSid}/Messages`, (req, res) => {
-    const { recipient } = req.params
-    client.messages.create({
-        body: `Your next piano lesson is tomorrow at `,
-        to: '+' + recipient,
-        from: +phoneNumber
-    }).then((message) => console.log(message.body))
-        .catch(err => console.log(err))
-})
 
 app.listen(SERVER_PORT, () => console.log(`Connected on Port ${SERVER_PORT}`))

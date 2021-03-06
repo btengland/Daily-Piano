@@ -11,7 +11,7 @@ const Practice = () => {
     const [edit, toggleEdit] = useState(false)
 
     useEffect(() => {
-        if (userContext.user) practiceContext.getPractice()
+        practiceContext.getPractice()
     }, [userContext.user])
     
     useEffect(() => {

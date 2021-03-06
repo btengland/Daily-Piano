@@ -3,7 +3,7 @@ module.exports = {
         const { date, phone_number } = req.body
         const { user_id } = req.session.user
         const db = req.app.get('db')
-        const [add] = await db.appointment.add_appointment(date, phone_number, user_id)
+        const [add] = await db.appointment.add_appointment([`${date}-${new Date(date).getTimezoneOffset()/60}`, phone_number, user_id])
         return res.status(201).send(add)
     },
     deleteAppointment: async (req, res) => {

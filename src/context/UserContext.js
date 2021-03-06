@@ -13,6 +13,10 @@ export const UserProvider = (props) => {
         if(!user && pathname !== '/'){getUser()}
     }, [user, pathname])
 
+    useEffect(() => {
+        if(user && pathname === '/'){history.push('/home')}
+    }, [user, pathname])
+
     const register = async (first_name, last_name, email, password) => {
         try {
             const response = await axios.post('/auth/register', { first_name, last_name, email, password })
