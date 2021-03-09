@@ -61,5 +61,16 @@ module.exports = {
         } else {
             res.status(500).send("Invalid email")
         }
+    },
+    adminOnly: (req, res, next) => {
+        if(!req.session.user.is_admin){
+            return res.status(403).send('You are not an admin')
+        }
+        next()
+    },
+    getAllUsers: async (req, res) => {
+        const db = req.app.get('db')
+        const get = await db.users.all_users()
+        return res.status(200).send(get)
     }
 }

@@ -10,7 +10,6 @@ const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING, AUTH_TOKEN } = process.e
 const auth = require('./controllers/userController')
 const prac = require('./controllers/practiceController')
 const apt = require('./controllers/appointmentController')
-const {oAuth2} = google.auth
 
 const phoneNumber = '+12623933161'
 const accountSid = 'ACdda3433573b6d1e51f480fb16d25ef03'
@@ -40,6 +39,7 @@ app.post('/auth/register', auth.emailMiddleware, auth.register)
 app.post('/auth/login', auth.login)
 app.post('/auth/logout', auth.logout)
 app.get('/auth/user', auth.getUserSession)
+app.get('/auth/getuser', auth.adminOnly, auth.getAllUsers)
 
 app.put('/api/practice/', prac.updatePractice)
 app.put('/api/practice/', prac.resetPractice)

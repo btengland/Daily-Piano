@@ -17,6 +17,7 @@
     "express-session": "^1.17.1",
     "googleapis": "^67.1.1",
     "massive": "^6.6.5",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-chartjs-2": "^2.11.1",

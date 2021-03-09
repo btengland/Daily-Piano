@@ -1,2 +1,2 @@
 DELETE FROM appointment
-WHERE appointment_id = $1;
+WHERE user_id = $1;

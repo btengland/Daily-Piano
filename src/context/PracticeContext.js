@@ -16,7 +16,6 @@ export const PracticeProvider = (props) => {
         const response = await axios.get(`/api/practice/`)
         setPractice(response.data)
     }
-
     return (
         <PracticeContext.Provider value={{ practice, setPractice, updatePractice, resetPractice, getPractice }}>
             {props.children}

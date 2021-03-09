@@ -10,7 +10,7 @@ export const AppointmentProvider = (props) => {
     }
     const deleteAppointment = async () => {
         const response = await axios.delete('/api/appointment/')
-        setAppointment(response.data)
+        setAppointment(null)
     }
     const getAppointment = async () => {
         const response = await axios.get('/api/appointment/')

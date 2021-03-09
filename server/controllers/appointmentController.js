@@ -10,7 +10,7 @@ module.exports = {
         const { user_id } = req.session.user
         const db = req.app.get('db')
         const del = await db.appointment.delete_appointment(user_id)
-        return res.status(200).send(del)
+        return res.sendStatus(200)
     },
     getAppointment: async (req, res) => {
         const { user_id } = req.session.user

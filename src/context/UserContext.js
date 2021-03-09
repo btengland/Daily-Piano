@@ -56,8 +56,17 @@ export const UserProvider = (props) => {
             history.push('/')
         }
     }
+    const getAllUsers = async () => {
+        try {
+        const response = await axios.get('/auth/getuser')
+        setUser(response.data)
+        }
+        catch {
+            console.log('error')
+        }
+    }
     return (
-        <UserContext.Provider value={{ user, setUser, register, login, logout, getUser }}>
+        <UserContext.Provider value={{ user, setUser, register, login, logout, getUser, getAllUsers }}>
             {props.children}
         </UserContext.Provider>
     )

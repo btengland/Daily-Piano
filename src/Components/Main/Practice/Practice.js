@@ -1,7 +1,7 @@
 import '../../../reset.css'
 import React, { useState, useContext, useEffect } from 'react'
-import { PracticeContext } from '../../../context/PracticeContext'
 import { Bar } from 'react-chartjs-2'
+import { PracticeContext } from '../../../context/PracticeContext'
 import { UserContext } from '../../../context/UserContext'
 
 const Practice = () => {
