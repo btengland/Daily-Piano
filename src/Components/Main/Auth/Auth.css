@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.authpage {
+  background-color: #c0c5ce;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+}
+
+.authhone {
+  font-family: 'Courier Prime', monospace;
+  font-size: 30px;
+}
+
+.authp {
+  font-family: 'Courier Prime', monospace;
+  color: rgba(255, 255, 255, 0.664);
+}
+
+.authhtwo {
+  font-family: 'Courier Prime', monospace;
+  color: rgba(255, 255, 255, 0.664);
+  font-size: 20px;
+}
+
+.authhthree {
+  font-family: 'Courier Prime', monospace;
+  color: rgba(255, 255, 255, 0.664);
+  font-size: 16px;
+}
+
+.authbox {
+  padding: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.welcome {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 30px;
+}
+
+.register {
+  height: 380px;
+  width: 300px;
+  background-color: #585555;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.login {
+  height: 380px;
+  width: 300px;
+  background-color: #585555;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 80px;
+  padding-top: 30px;
+}
+
+.btn {
+  background-color: #c0c5ce;
+  width: 70px;
+  height: 20px;
+  border-radius: 15px;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #75787a;
+}
+
+@media screen and (max-width: 870px) {
+  .authpage {
+    background-color: #c0c5ce;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+  }
+  .authbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .login {
+    margin-bottom: 50px;
+  }
+}
+/*# sourceMappingURL=Auth.css.map */

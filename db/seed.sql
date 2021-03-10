@@ -31,3 +31,7 @@ CREATE TABLE appointment (
     date TIMESTAMPTZ,
     user_id INT REFERENCES users(user_id)
 );
+
+UPDATE users
+SET is_admin = true
+WHERE user_id = 1;

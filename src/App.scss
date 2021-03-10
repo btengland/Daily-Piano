@@ -1,0 +1,29 @@
+$mainBackground: #c0c5ce;
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin font {
+    font-family: 'Courier Prime', monospace;
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin btn {
+    background-color: $mainBackground;
+    width: 70px;
+    height: 20px;
+    border-radius: 15px;
+    border: none;
+    &:hover {
+        background-color: #75787a;
+    }
+}

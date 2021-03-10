@@ -1,0 +1,90 @@
+@import "../../App";
+
+* {
+  text-decoration: none;
+}
+
+.insideheader {
+  @include flex();
+  background-color: rgb(88, 85, 85);
+  height: 80px;
+}
+
+.headword {
+  @include font();
+  color: rgba(255, 255, 255, 0.664);
+  font-size: 20px;
+}
+
+.logout {
+  @include font();
+  font-size: 20px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.664);
+  &:hover {
+    background-color: #c0c5ce;
+  }
+}
+
+#hamburger {
+  display: none;
+  height: 20px;
+  width: 20px;
+}
+
+@media screen and (max-width: 530px) {
+  #hamburger {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  .ham {
+    display: none;
+    background-color: rgb(88, 85, 85);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100vw;
+    height: 30px;
+    margin-bottom: -1px;
+  }
+
+  .insideheader {
+    height: 60px;
+    animation: slide-down 0.5s ease-in-out;
+  }
+
+  .headword {
+    margin-top: -10px;
+    font-size: 15px;
+    animation: appear 1s;
+  }
+
+  .logout {
+    margin-top: -10px;
+    font-size: 15px;
+    animation: appear 1s;
+  }
+
+  .no {
+    display: none;
+  }
+
+  @keyframes slide-down {
+    0% {
+      height: 0px;
+    }
+    100% {
+      height: 60px;
+    }
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

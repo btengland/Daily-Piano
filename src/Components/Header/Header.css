@@ -1,4 +1,123 @@
-.header {
-    display: flex;
-    justify-content: space-around;
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
+* {
+  text-decoration: none;
+}
+
+.insideheader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #585555;
+  height: 80px;
+}
+
+.headword {
+  font-family: 'Courier Prime', monospace;
+  color: rgba(255, 255, 255, 0.664);
+  font-size: 20px;
+}
+
+.logout {
+  font-family: 'Courier Prime', monospace;
+  font-size: 20px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.664);
+}
+
+.logout:hover {
+  background-color: #c0c5ce;
+}
+
+#hamburger {
+  display: none;
+  height: 20px;
+  width: 20px;
+}
+
+@media screen and (max-width: 530px) {
+  #hamburger {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .ham {
+    display: none;
+    background-color: #585555;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 100vw;
+    height: 30px;
+    margin-bottom: -1px;
+  }
+  .insideheader {
+    height: 60px;
+    -webkit-animation: slide-down 0.5s ease-in-out;
+            animation: slide-down 0.5s ease-in-out;
+  }
+  .headword {
+    margin-top: -10px;
+    font-size: 15px;
+    -webkit-animation: appear 1s;
+            animation: appear 1s;
+  }
+  .logout {
+    margin-top: -10px;
+    font-size: 15px;
+    -webkit-animation: appear 1s;
+            animation: appear 1s;
+  }
+  .no {
+    display: none;
+  }
+  @-webkit-keyframes slide-down {
+    0% {
+      height: 0px;
+    }
+    100% {
+      height: 60px;
+    }
+  }
+  @keyframes slide-down {
+    0% {
+      height: 0px;
+    }
+    100% {
+      height: 60px;
+    }
+  }
+  @-webkit-keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+/*# sourceMappingURL=Header.css.map */

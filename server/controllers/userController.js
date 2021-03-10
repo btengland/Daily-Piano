@@ -62,6 +62,13 @@ module.exports = {
             res.status(500).send("Invalid email")
         }
     },
+    nameMiddleware: (req, res, next) => {
+        if (req.body.last_name) {
+            return next()
+        } else {
+            res.status(502).send("Please enter a name")
+        }
+    },
     adminOnly: (req, res, next) => {
         if(!req.session.user.is_admin){
             return res.status(403).send('You are not an admin')

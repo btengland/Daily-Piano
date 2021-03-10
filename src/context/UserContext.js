@@ -6,15 +6,16 @@ import { NotificationManager } from 'react-notifications'
 export const UserContext = createContext()
 export const UserProvider = (props) => {
     const [user, setUser] = useState(null)
+    const [users, setUsers] = useState([])
     const history = useHistory()
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
 
     useEffect(() => {
-        if(!user && pathname !== '/'){getUser()}
+        if (!user && pathname !== '/') { getUser() }
     }, [user, pathname])
 
     useEffect(() => {
-        if(user && pathname === '/'){history.push('/home')}
+        if (user && pathname === '/') { history.push('/home') }
     }, [user, pathname])
 
     const register = async (first_name, last_name, email, password) => {
@@ -27,8 +28,10 @@ export const UserProvider = (props) => {
         catch (err) {
             if (err.response.status === 500) {
                 NotificationManager.error('Invalid email')
-            } else {
+            } else if(err.response.status === 400){
                 NotificationManager.error('Email already in use')
+            } else if(err.response.status === 502){
+                NotificationManager.error('Please enter a name')
             }
         }
     }
@@ -49,8 +52,8 @@ export const UserProvider = (props) => {
     }
     const getUser = async () => {
         try {
-        const response = await axios.get('/auth/user')
-        setUser(response.data)
+            const response = await axios.get('/auth/user')
+            setUser(response.data)
         }
         catch {
             history.push('/')
@@ -58,15 +61,16 @@ export const UserProvider = (props) => {
     }
     const getAllUsers = async () => {
         try {
-        const response = await axios.get('/auth/getuser')
-        setUser(response.data)
+            const response = await axios.get('/auth/getuser')
+            setUsers(response.data)
+            return response.data
         }
         catch {
             console.log('error')
         }
     }
     return (
-        <UserContext.Provider value={{ user, setUser, register, login, logout, getUser, getAllUsers }}>
+        <UserContext.Provider value={{ user, users, setUsers, setUser, register, login, logout, getUser, getAllUsers }}>
             {props.children}
         </UserContext.Provider>
     )

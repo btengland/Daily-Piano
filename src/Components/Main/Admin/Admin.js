@@ -1,29 +1,36 @@
 import '../../../reset.css'
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../../context/UserContext'
+import User from './User'
 
 const Admin = () => {
     const userContext = useContext(UserContext)
-    const [users, setUsers] = useState([])
+    const [userList, setUserList] = useState([])
+    const [input, setInput] = useState('')
 
-    useEffect(() => {
-        console.log(userContext.getAllUsers())
+    useEffect(async () => {
+        let users = await userContext.getAllUsers()
+        setUserList(users)
     }, [])
-
-    let users = userContext.users?.map(user => {
-        const {user_id, first_name, last_name, monday, tuesday, wednesday, thursday, friday, saturday, sunday, goal} = user
-        console.log({user})
-        return <Admin key={user_id} first_name={first_name} last_name={last_name} monday={monday} tuesday={tuesday} 
-        wednesday={wednesday} thursday={thursday} friday={friday} saturday={saturday} sunday={sunday} goal={goal}/>
-    })
 
     return (
         <div>
-            <div>
+            {userContext.user?.is_admin &&
                 <div>
-                    {users}
-                </div>
-            </div>
+                    <div>
+                        <h2>Search Student By Last Name: <input input={input} onChange={e => setInput(e.target.value)} /></h2>
+                    </div>
+                    <div>
+                        {userContext.users.filter((user) => user.last_name.toLowerCase().includes(input.toLowerCase())).map(user => {
+                            const { user_id, first_name, last_name, monday, tuesday, wednesday, thursday, friday, saturday, sunday, goal } = user
+                            return <User key={user_id} first_name={first_name} last_name={last_name} monday={monday} tuesday={tuesday}
+                                wednesday={wednesday} thursday={thursday} friday={friday} saturday={saturday} sunday={sunday} goal={goal} />
+                        })}
+                    </div>
+                </div>}
+            {!userContext.user?.is_admin &&
+                <div>You are not an admin</div>
+            }
         </div>
     )
 }
