@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACCA,OAAO,CAAC,0EAAI;AAEZ,AAAA,CAAC,CAAC;EACE,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;CACzB;;AAED,AAAA,IAAI,CAAA;EACA,gBAAgB,EAVH,OAAO;CAWvB",
+    "sources": [
+        "Appointment.scss",
+        "../../../App.scss"
+    ],
+    "names": [],
+    "file": "Appointment.css"
+}

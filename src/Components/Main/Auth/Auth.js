@@ -35,7 +35,7 @@ const Auth = () => {
                         <input type='password' value={userPassword} onChange={(e) => { authPassword(e.target.value) }} />
                     </div>
                     <div>
-                        <button className="btn" onClick={() => userContext.login(userEmail, userPassword)}>Login</button>
+                        <button className="btnlogin" onClick={() => userContext.login(userEmail, userPassword)}>Login</button>
                     </div>
                 </div>
                 <div className='register'>
@@ -62,7 +62,7 @@ const Auth = () => {
                         <input type='password' value={password} onChange={(e) => { setPassword(e.target.value) }} />
                     </div>
                     <div>
-                        <button className="btn" onClick={() => userContext.register(first, last, email, password)}>Register</button>
+                        <button className="btnregister" onClick={() => userContext.register(first, last, email, password)}>Register</button>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import '../../../reset.css'
+import './Practice.css'
 import React, { useState, useContext, useEffect } from 'react'
 import { Bar } from 'react-chartjs-2'
 import { PracticeContext } from '../../../context/PracticeContext'
@@ -13,7 +14,7 @@ const Practice = () => {
     useEffect(() => {
         practiceContext.getPractice()
     }, [userContext.user])
-    
+
     useEffect(() => {
         setPracticeTime(practiceContext.practice)
     }, [practiceContext.practice])
@@ -29,58 +30,71 @@ const Practice = () => {
     }
 
     return (
-        <div>
-            <div>
-                <h2>Monday:</h2>
-                {!edit && <p>{practiceContext.practice.monday} Minutes</p>}
-                {edit && <input value={practiceTime.monday} onChange={(e) => { setPracticeTime({ ...practiceTime, monday: e.target.value }) }} />}
-            </div>
-            <div>
-                <h2>Tuesday:</h2>
-                {!edit && <p>{practiceContext.practice.tuesday} Minutes</p>}
-                {edit && <input value={practiceTime.tuesday} onChange={(e) => { setPracticeTime({ ...practiceTime, tuesday: e.target.value }) }} />}
-            </div>
-            <div>
-                <h2>Wednesday:</h2>
-                {!edit && <p>{practiceContext.practice.wednesday} Minutes</p>}
-                {edit && <input value={practiceTime.wednesday} onChange={(e) => { setPracticeTime({ ...practiceTime, wednesday: e.target.value }) }} />}
-            </div>
-            <div>
-                <h2>Thursday:</h2>
-                {!edit && <p>{practiceContext.practice.thursday} Minutes</p>}
-                {edit && <input value={practiceTime.thursday} onChange={(e) => { setPracticeTime({ ...practiceTime, thursday: e.target.value }) }} />}
-            </div>
-            <div>
-                <h2>Friday:</h2>
-                {!edit && <p>{practiceContext.practice.friday} Minutes</p>}
-                {edit && <input value={practiceTime.friday} onChange={(e) => { setPracticeTime({ ...practiceTime, friday: e.target.value }) }} />}
-            </div>
-            <div>
-                <h2>Saturday:</h2>
-                {!edit && <p>{practiceContext.practice.saturday} Minutes</p>}
-                {edit && <input value={practiceTime.saturday} onChange={(e) => { setPracticeTime({ ...practiceTime, saturday: e.target.value }) }} />}
-            </div>
-            <div>
-                <h2>Sunday:</h2>
-                {!edit && <p>{practiceContext.practice.sunday} Minutes</p>}
-                {edit && <input value={practiceTime.sunday} onChange={(e) => { setPracticeTime({ ...practiceTime, sunday: e.target.value }) }} />}
-            </div>
-            <div>
-                <h2>Weekly Total:</h2>
-                <p>{addTotal()} Minutes</p>
-            </div>
-            <div>
-                <h2>Goal:</h2>
-                {!edit && <p>{practiceContext.practice.goal} Minutes</p>}
-                {edit && <input value={practiceTime.goal} onChange={(e) => { setPracticeTime({ ...practiceTime, goal: e.target.value }) }} />}
-            </div>
-            <div>
-                <button onClick={() => practiceContext.resetPractice()}>Reset</button>
-                <button onClick={() => toggleEdit(true)}>Edit</button>
-                <button onClick={() => {
-                    practiceContext.updatePractice(practiceTime);
-                    toggleEdit(false)
-                }}>Done</button>
+        <div className="practicecontainer">
+            <h1 className="practicehead">Practice</h1>
+            <div className="buttonouter">
+                <div className="daysouter">
+                    <div className="dayscontainer">
+                        <div className='goal'>
+                            <div>
+                                <h2 className="titles">Goal:</h2>
+                                {!edit && <p className="minutes">{practiceContext.practice.goal} Minutes</p>}
+                                {edit && <input value={practiceTime.goal} onChange={(e) => { setPracticeTime({ ...practiceTime, goal: e.target.value }) }} />}
+                            </div>
+                        </div>
+                        <div className="days">
+                            <div>
+                                <h2 className="titles">Monday:</h2>
+                                {!edit && <p className="minutes">{practiceContext.practice.monday} Minutes</p>}
+                                {edit && <input value={practiceTime.monday} onChange={(e) => { setPracticeTime({ ...practiceTime, monday: e.target.value }) }} />}
+                            </div>
+                            <div>
+                                <h2 className="titles">Tuesday:</h2>
+                                {!edit && <p className="minutes">{practiceContext.practice.tuesday} Minutes</p>}
+                                {edit && <input value={practiceTime.tuesday} onChange={(e) => { setPracticeTime({ ...practiceTime, tuesday: e.target.value }) }} />}
+                            </div>
+                            <div>
+                                <h2 className="titles">Wednesday:</h2>
+                                {!edit && <p className="minutes">{practiceContext.practice.wednesday} Minutes</p>}
+                                {edit && <input value={practiceTime.wednesday} onChange={(e) => { setPracticeTime({ ...practiceTime, wednesday: e.target.value }) }} />}
+                            </div>
+                            <div>
+                                <h2 className="titles">Thursday:</h2>
+                                {!edit && <p className="minutes">{practiceContext.practice.thursday} Minutes</p>}
+                                {edit && <input value={practiceTime.thursday} onChange={(e) => { setPracticeTime({ ...practiceTime, thursday: e.target.value }) }} />}
+                            </div>
+                            <div>
+                                <h2 className="titles">Friday:</h2>
+                                {!edit && <p className="minutes">{practiceContext.practice.friday} Minutes</p>}
+                                {edit && <input value={practiceTime.friday} onChange={(e) => { setPracticeTime({ ...practiceTime, friday: e.target.value }) }} />}
+                            </div>
+                            <div>
+                                <h2 className="titles">Saturday:</h2>
+                                {!edit && <p className="minutes">{practiceContext.practice.saturday} Minutes</p>}
+                                {edit && <input value={practiceTime.saturday} onChange={(e) => { setPracticeTime({ ...practiceTime, saturday: e.target.value }) }} />}
+                            </div>
+                            <div>
+                                <h2 className="titles">Sunday:</h2>
+                                {!edit && <p className="minutes">{practiceContext.practice.sunday} Minutes</p>}
+                                {edit && <input value={practiceTime.sunday} onChange={(e) => { setPracticeTime({ ...practiceTime, sunday: e.target.value }) }} />}
+                            </div>
+                        </div>
+                        <div className="weeklytotal">
+                            <div>
+                                <h2 className="titles">Weekly Total:</h2>
+                                <p className="minutes">{addTotal()} Minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="buttonscontainer">
+                    <button className="buttons" onClick={() => practiceContext.resetPractice()}>Reset</button>
+                    <button className="buttons" onClick={() => toggleEdit(true)}>Edit</button>
+                    <button className="buttons" onClick={() => {
+                        practiceContext.updatePractice(practiceTime);
+                        toggleEdit(false)
+                    }}>Done</button>
+                </div>
             </div>
             <div className='chart'>
                 <Bar

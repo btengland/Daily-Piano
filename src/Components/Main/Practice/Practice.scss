@@ -1,0 +1,100 @@
+@import "../../../App";
+
+@mixin days {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.practicecontainer {
+    background-color: $mainBackground;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.daysouter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.dayscontainer {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: -40px;
+}
+
+.days {
+    @include days();
+}
+
+.weeklytotal {
+    @include days();
+    justify-content: center;
+}
+
+.goal {
+    @include days();
+    justify-content: center;
+}
+
+.buttonouter {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonscontainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: -17px;
+}
+
+.buttons {
+    @include font();
+    @include btn();
+    border: 1px solid black;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.practicehead {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    @include font();
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.titles {
+    @include font();
+    font-style: bold;
+    font-size: 18px;
+}
+
+.minutes {
+    @include font();
+}
+
+@media screen and (max-width: 550px) {
+    .practicecontainer{
+        height: 110vh;
+    }
+
+    .buttonouter{
+        align-items: center;
+    }
+
+    .daysouter{
+        width: 250px;
+    }
+
+    
+}

@@ -7,6 +7,10 @@ $mainBackground: #c0c5ce;
     box-sizing: border-box;
 }
 
+body{
+    background-color: $mainBackground;
+}
+
 @mixin font {
     font-family: 'Courier Prime', monospace;
 }

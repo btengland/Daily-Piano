@@ -4,6 +4,10 @@
   text-decoration: none;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .insideheader {
   @include flex();
   background-color: rgb(88, 85, 85);

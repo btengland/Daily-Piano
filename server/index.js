@@ -3,7 +3,6 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const twilio = require('twilio')
-const {google} = require('googleapis')
 
 const app = express()
 const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING, AUTH_TOKEN } = process.env

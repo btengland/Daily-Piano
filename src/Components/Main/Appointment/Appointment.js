@@ -1,4 +1,5 @@
 import '../../../reset.css'
+import './Appointment.css'
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { useContext, useEffect, useState } from 'react'
@@ -22,7 +23,8 @@ const Appointment = () => {
     }, [appointmentContext])
 
     return (
-        <div>
+        <div className="appointmentcontainer">
+            <h1>Appointment</h1>
             <div>
                 {appointmentContext.appointment && <h2>Your next lesson is on {moment.utc(appointmentContext.appointment?.date).format(`MMMM Do YYYY, [at] h:mm a`)}</h2>}
                 {!appointmentContext.appointment && <h2>Please Schedule your next appointment.</h2>}

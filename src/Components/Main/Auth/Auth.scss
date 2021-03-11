@@ -62,8 +62,15 @@
   padding-top: 30px;
 }
 
-.btn {
+.btnlogin {
   @include btn();
+  @include font();
+}
+
+.btnregister {
+  @include btn();
+  @include font();
+  width: 80px;
 }
 
 @media screen and (max-width: 870px){

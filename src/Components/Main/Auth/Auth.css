@@ -97,15 +97,30 @@
   padding-top: 30px;
 }
 
-.btn {
+.btnlogin {
   background-color: #c0c5ce;
   width: 70px;
   height: 20px;
   border-radius: 15px;
   border: none;
+  font-family: 'Courier Prime', monospace;
 }
 
-.btn:hover {
+.btnlogin:hover {
+  background-color: #75787a;
+}
+
+.btnregister {
+  background-color: #c0c5ce;
+  width: 70px;
+  height: 20px;
+  border-radius: 15px;
+  border: none;
+  font-family: 'Courier Prime', monospace;
+  width: 80px;
+}
+
+.btnregister:hover {
   background-color: #75787a;
 }
 
