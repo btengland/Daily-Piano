@@ -1,1 +1,66 @@
 @import "../../../App";
+@mixin appointment {
+    padding: 25px;
+    width: 300px;
+    height: 200px;
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    line-height: 25px;
+}
+
+.appointmenthead {
+  @include font();
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.appointmentcontainer {
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nextappointment {
+    @include appointment();
+}
+
+.addlesson {
+    @include appointment();
+}
+
+.lessonhtwo {
+    @include font ();
+    font-size: 18px;
+}
+
+.lessonbtnadd {
+    @include font();
+    @include btn();
+    border: 1px solid black;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    width: 110px;
+}
+
+.lessonbtncancel {
+    @include font();
+    @include btn();
+    border: 1px solid black;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    width: 130px;
+}
+
+@media screen and (max-width: 620px) {
+    .appointmentcontainer {
+        flex-direction: column;
+    }
+  }

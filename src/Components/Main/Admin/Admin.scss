@@ -1,0 +1,78 @@
+@import "../../../App";
+
+.adminhead {
+  @include font();
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.noaccess {
+  @include font();
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
+  text-align: center;
+}
+
+.searchword {
+  @include font();
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.outerclass {
+  display: flex;
+}
+
+.students {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.classbox {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  margin: 20px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.daysw {
+  @include font();
+  font-size: 18px;
+}
+
+.studentname {
+  @include font();
+  font-size: 20px;
+}
+
+@media screen and (max-width: 880px) {
+  .outerbox {
+    justify-content: center;
+  }
+
+  .students {
+    display: flex;
+    justify-content: center;
+  }
+
+  .classbox {
+    width: 300px;
+    margin: 0;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+}

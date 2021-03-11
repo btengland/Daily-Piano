@@ -3,6 +3,7 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const twilio = require('twilio')
+const path = require('path')
 
 const app = express()
 const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING, AUTH_TOKEN } = process.env
@@ -47,5 +48,11 @@ app.get('/api/practice/', prac.getPractice)
 app.post('/api/appointment/', apt.addAppointment)
 app.delete('/api/appointment/', apt.deleteAppointment)
 app.get('/api/appointment/', apt.getAppointment)
+
+app.use( express.static( `${__dirname}/../build`));
+
+app.get('*', (req, res)=> {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})
 
 app.listen(SERVER_PORT, () => console.log(`Connected on Port ${SERVER_PORT}`))

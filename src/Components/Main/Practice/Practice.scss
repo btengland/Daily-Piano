@@ -22,7 +22,7 @@
 }
 
 .dayscontainer {
-    width: 500px;
+    width: 800px;
     height: 300px;
     display: flex;
     justify-content: space-between;
@@ -83,18 +83,37 @@
     @include font();
 }
 
+@media screen and (max-width: 850px){
+    .dayscontainer {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 670px){
+    .dayscontainer {
+        width: 500px;
+    }
+}
+
 @media screen and (max-width: 550px) {
-    .practicecontainer{
-        height: 110vh;
+    .dayscontainer {
+        width: 400px;
     }
+}
 
-    .buttonouter{
-        align-items: center;
+@media screen and (max-width: 455px) {
+    .dayscontainer {
+        width: 300px;
     }
-
-    .daysouter{
-        width: 250px;
-    }
-
     
+    .dayscontainer {
+        margin-left: -50px;
+        margin-bottom: 180px;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .titles {
+        margin-top: 15px;
+    }
 }

@@ -7,11 +7,13 @@ import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/UserContext'
 import { PracticeProvider } from './context/PracticeContext'
 import { AppointmentProvider } from './context/AppointmentContext'
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, BrowserRouter } from 'react-router-dom';
+
+const Router = process.env.NODE_ENV === 'development'? HashRouter : BrowserRouter
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
+    <Router>
       <UserProvider>
         <PracticeProvider>
           <AppointmentProvider>
@@ -19,7 +21,7 @@ ReactDOM.render(
           </AppointmentProvider>
         </PracticeProvider>
       </UserProvider>
-    </HashRouter>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

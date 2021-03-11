@@ -6,6 +6,14 @@
           box-sizing: border-box;
 }
 
+input {
+  opacity: 0.8;
+}
+
+body {
+  background-color: #c0c5ce;
+}
+
 .authpage {
   background-color: #c0c5ce;
   height: 100vh;
@@ -101,7 +109,6 @@
   background-color: #c0c5ce;
   width: 70px;
   height: 20px;
-  border-radius: 15px;
   border: none;
   font-family: 'Courier Prime', monospace;
 }
@@ -114,7 +121,6 @@
   background-color: #c0c5ce;
   width: 70px;
   height: 20px;
-  border-radius: 15px;
   border: none;
   font-family: 'Courier Prime', monospace;
   width: 80px;

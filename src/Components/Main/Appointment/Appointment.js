@@ -18,34 +18,34 @@ const Appointment = () => {
     }, [userContext.user])
 
     useEffect(() => {
-        if(appointmentContext.appointment){
-        setDate(new Date(appointmentContext.appointment.date))}
+        if (appointmentContext.appointment) {
+            setDate(new Date(appointmentContext.appointment.date))
+        }
     }, [appointmentContext])
 
     return (
-        <div className="appointmentcontainer">
-            <h1>Appointment</h1>
-            <div>
-                {appointmentContext.appointment && <h2>Your next lesson is on {moment.utc(appointmentContext.appointment?.date).format(`MMMM Do YYYY, [at] h:mm a`)}</h2>}
-                {!appointmentContext.appointment && <h2>Please Schedule your next appointment.</h2>}
-            </div>
-            <div>
-                <div>
-                    <h2>Add your lesson here</h2>
+        <div>
+            <h1 className="appointmenthead">Appointment</h1>
+            <div className="appointmentcontainer">
+                <div className="nextappointment">
                     <div>
-                        <h2>Sign up for a text reminder for your next lesson here:</h2>
+                        {appointmentContext.appointment && <h2 className="lessonhtwo">Your next lesson is on {moment.utc(appointmentContext.appointment?.date).format(`MMMM Do YYYY, [at] h:mm a`)}.</h2>}
+                        {!appointmentContext.appointment && <h2 className="lessonhtwo">Please enter your next appointment.</h2>}
+                    </div>
+                </div>
+                <div className="addlesson">
+                        <h2 className="lessonhtwo">Sign up for a text reminder for your next lesson here:</h2>
+                    <div>
                         {!appointmentContext.appointment && <input placeholder='Phone Number' value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />}
                         <div className='datepicker'>
                             <DatePicker dateFormat="MMMM d, yyyy" timeIntevals={15} selected={date} showTimeSelect onChange={date => setDate(date)} />
                         </div>
                     </div>
                     <div>
-                        {!appointmentContext.appointment && <button onClick={() => { appointmentContext.addAppointment(date, phoneNumber); setPhoneNumber('') }}>Add Lesson</button>}
-                        {appointmentContext.appointment && <button onClick={() => { appointmentContext.deleteAppointment(); setPhoneNumber('') }}>Cancel Lesson</button>}
+                        {!appointmentContext.appointment && <button className="lessonbtnadd" onClick={() => { appointmentContext.addAppointment(date, phoneNumber); setPhoneNumber('') }}>Add Lesson</button>}
+                        {appointmentContext.appointment && <button className="lessonbtncancel" onClick={() => { appointmentContext.deleteAppointment(); setPhoneNumber('') }}>Cancel Lesson</button>}
                     </div>
                 </div>
-            </div>
-            <div>
             </div>
         </div>
     )

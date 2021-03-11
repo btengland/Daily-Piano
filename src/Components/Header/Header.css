@@ -6,6 +6,14 @@
           box-sizing: border-box;
 }
 
+input {
+  opacity: 0.8;
+}
+
+body {
+  background-color: #c0c5ce;
+}
+
 * {
   text-decoration: none;
 }

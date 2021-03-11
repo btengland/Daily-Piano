@@ -7,6 +7,10 @@ $mainBackground: #c0c5ce;
     box-sizing: border-box;
 }
 
+input {
+    opacity: 0.8;
+}
+
 body{
     background-color: $mainBackground;
 }
@@ -25,7 +29,6 @@ body{
     background-color: $mainBackground;
     width: 70px;
     height: 20px;
-    border-radius: 15px;
     border: none;
     &:hover {
         background-color: #75787a;
