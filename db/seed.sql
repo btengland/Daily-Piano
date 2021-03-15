@@ -27,7 +27,7 @@ CREATE TABLE practice (
 
 CREATE TABLE appointment (
     appointment_id SERIAL PRIMARY KEY,
-    phone_number INT,
+    phone_number VARCHAR(20),
     date TIMESTAMPTZ,
     user_id INT REFERENCES users(user_id)
 );

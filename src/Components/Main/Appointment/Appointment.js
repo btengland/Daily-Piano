@@ -34,7 +34,7 @@ const Appointment = () => {
                     </div>
                 </div>
                 <div className="addlesson">
-                        <h2 className="lessonhtwo">Sign up for a text reminder for your next lesson here:</h2>
+                        <h2 className="lessonhtwo">Sign up for a text to keep track of your next lesson here:</h2>
                     <div>
                         {!appointmentContext.appointment && <input placeholder='Phone Number' value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />}
                         <div className='datepicker'>
@@ -42,7 +42,9 @@ const Appointment = () => {
                         </div>
                     </div>
                     <div>
-                        {!appointmentContext.appointment && <button className="lessonbtnadd" onClick={() => { appointmentContext.addAppointment(date, phoneNumber); setPhoneNumber('') }}>Add Lesson</button>}
+                        {!appointmentContext.appointment && <button className="lessonbtnadd" 
+                        onClick={() => { appointmentContext.addAppointment(date, phoneNumber); setPhoneNumber('') }}
+                        >Add Lesson</button>}
                         {appointmentContext.appointment && <button className="lessonbtncancel" onClick={() => { appointmentContext.deleteAppointment(); setPhoneNumber('') }}>Cancel Lesson</button>}
                     </div>
                 </div>

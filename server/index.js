@@ -2,18 +2,13 @@ require('dotenv').config()
 const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
-const twilio = require('twilio')
 const path = require('path')
 
 const app = express()
-const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING, AUTH_TOKEN } = process.env
+const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env
 const auth = require('./controllers/userController')
 const prac = require('./controllers/practiceController')
 const apt = require('./controllers/appointmentController')
-
-const phoneNumber = '+12623933161'
-const accountSid = 'ACdda3433573b6d1e51f480fb16d25ef03'
-const client = new twilio(accountSid, AUTH_TOKEN)
 
 app.use(express.json())
 app.use(session({
