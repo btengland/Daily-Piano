@@ -63,6 +63,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   padding-top: 30px;
+  text-align: center;
 }
 
 .register {
